@@ -37,6 +37,11 @@ int main(int argc, char *argv[])
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
 
+	if (size < 2) {
+		cout << "Need more proccessors" << endl;
+		return -1;
+	}
+
 	MPI_Status status;
 
 	if (rank == 0)
